@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="staff.css"> <!-- Link to the same CSS file -->
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>Staff Dashboard</h2>
+
+        <!-- Buttons for Each List -->
+        <div class="button-group">
+            <button onclick="showList('batchwiseList')">List Students Batchwise</button>
+            <button onclick="showList('cdcList')">List of Students Got Internship Through CDC</button>
+            <button onclick="showList('nonCdcList')">List of Students Got Internship Not Through CDC</button>
+            <button onclick="showList('academicInternshipList')">List of Students Got Academic Internship</button>
+            <button onclick="showList('industryInternshipList')">List of Students Got Industry Internship</button>
+            <button onclick="showList('academicYearList')">List of Students Got Internship in Specified Academic Year</button>
+            <button onclick="showList('internshipPeriodList')">List of Students Based on Internship Period</button>
+            <button onclick="showList('companyWiseList')">Company-wise List of Students</button>
+            <button onclick="showList('stipendList')">List of Students with Stipend More Than 1 Lakh</button>
+            <button onclick="showList('abroadList')">List of Students Completed Internship Abroad</button>
+            <button onclick="showList('indiaList')">List of Students Completed Internship in India</button>
+        </div>
+
+        <!-- Display Area for Lists -->
+        <div id="listDisplayArea" class="list-display-area">
+            <!-- Lists will be displayed here dynamically -->
+        </div>
+    </div>
+
+    <script>
+        // Example data (replace with actual data from a backend or API)
+        const students = [
+            { name: "Student 1", batch: "2021-2024", cdc: true, academicInternship: false, industryInternship: true, academicYear: "2021-2022", internshipPeriod: "2 months", company: "Company A", stipend: 120000, abroad: true },
+            { name: "Student 2", batch: "2022-2025", cdc: false, academicInternship: true, industryInternship: false, academicYear: "2022-2023", internshipPeriod: "3 months", company: "Company B", stipend: 80000, abroad: false },
+            // Add more student data here
+        ];
+
+        // Function to display a list based on the button clicked
+        function showList(listType) {
+            const listDisplayArea = document.getElementById("listDisplayArea");
+            listDisplayArea.innerHTML = ""; // Clear previous content
+
+            let filteredStudents = [];
+            let listTitle = "";
+
+            switch (listType) {
+                case "batchwiseList":
+                    filteredStudents = students;
+                    listTitle = "List of Students Batchwise";
+                    break;
+                case "cdcList":
+                    filteredStudents = students.filter(student => student.cdc);
+                    listTitle = "List of Students Who Got Internship Through CDC";
+                    break;
+                case "nonCdcList":
+                    filteredStudents = students.filter(student => !student.cdc);
+                    listTitle = "List of Students Who Got Internship Not Through CDC";
+                    break;
+                case "academicInternshipList":
+                    filteredStudents = students.filter(student => student.academicInternship);
+                    listTitle = "List of Students Who Got Academic Internship";
+                    break;
+                case "industryInternshipList":
+                    filteredStudents = students.filter(student => student.industryInternship);
+                    listTitle = "List of Students Who Got Industry Internship";
+                    break;
+                case "academicYearList":
+                    filteredStudents = students.filter(student => student.academicYear === "2021-2022"); // Example academic year
+                    listTitle = "List of Students Who Got Internship in Specified Academic Year";
+                    break;
+                case "internshipPeriodList":
+                    filteredStudents = students.filter(student => student.internshipPeriod === "2 months"); // Example period
+                    listTitle = "List of Students Based on Internship Period";
+                    break;
+                case "companyWiseList":
+                    filteredStudents = students.filter(student => student.company === "Company A"); // Example company
+                    listTitle = "Company-wise List of Students";
+                    break;
+                case "stipendList":
+                    filteredStudents = students.filter(student => student.stipend > 100000);
+                    listTitle = "List of Students with Stipend More Than 1 Lakh";
+                    break;
+                case "abroadList":
+                    filteredStudents = students.filter(student => student.abroad);
+                    listTitle = "List of Students Who Completed Internship Abroad";
+                    break;
+                case "indiaList":
+                    filteredStudents = students.filter(student => !student.abroad);
+                    listTitle = "List of Students Who Completed Internship in India";
+                    break;
+                default:
+                    listTitle = "No List Selected";
+                    break;
+            }
+
+            // Display the list title
+            const titleElement = document.createElement("h3");
+            titleElement.textContent = listTitle;
+            listDisplayArea.appendChild(titleElement);
+
+            // Display the filtered students
+            const ulElement = document.createElement("ul");
+            filteredStudents.forEach(student => {
+                const liElement = document.createElement("li");
+                liElement.textContent = student.name;
+                ulElement.appendChild(liElement);
+            });
+            listDisplayArea.appendChild(ulElement);
+        }
+    </script>
+</body>
+</html>

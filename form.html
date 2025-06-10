@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Internship Details Form</title>
+    <link rel="stylesheet" href="from.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2 id="registerNumberDisplay"></h2>
+
+        <form id="registrationForm" action="final.html" method="GET" enctype="multipart/form-data">
+            <!-- Personal Information Section -->
+            <div class="form-group">
+                <label for="registerNumber">Register Number*</label>
+                <input type="text" id="registerNumber" name="registerNumber" required>
+                <div class="error-message" id="regNoError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name*</label>
+                <input type="text" id="name" name="name" required>
+                <div class="error-message" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="mobileNo">Mobile No.*</label>
+                <input type="text" id="mobileNo" name="mobileNo" required>
+                <div class="error-message" id="mobileError"></div>
+            </div>
+
+            <!-- Internship Details Section -->
+            <div class="form-group">
+                <label>Obtained Internship*</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="internship" value="yes" required> Yes</label>
+                    <label><input type="radio" name="internship" value="no" required> No</label>
+                </div>
+                <div class="error-message" id="internshipError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Internship Title*</label>
+                <input type="text" id="title" name="title" required>
+                <div class="error-message" id="titleError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="period">Period (e.g., 2 months)*</label>
+                <input type="text" id="period" name="period" required>
+                <div class="error-message" id="periodError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="startDate">Start Date*</label>
+                <input type="date" id="startDate" name="startDate" required>
+                <div class="error-message" id="startDateError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="endDate">End Date*</label>
+                <input type="date" id="endDate" name="endDate" required>
+                <div class="error-message" id="endDateError"></div>
+            </div>
+
+            <!-- Company Information Section -->
+            <div class="form-group">
+                <label for="companyName">Company Name*</label>
+                <input type="text" id="companyName" name="companyName" required>
+                <div class="error-message" id="companyError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="placementSource">Placement Source*</label>
+                <select id="placementSource" name="placementSource" required>
+                    <option value="">Select Source</option>
+                    <option value="throughCollege">Through College</option>
+                    <option value="other">Outside</option>
+                </select>
+                <div class="error-message" id="sourceError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="stipend">Stipend (In Rs.)*</label>
+                <input type="number" id="stipend" name="stipend" min="0" required>
+                <div class="error-message" id="stipendError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="internshipType">Internship Type*</label>
+                <select id="internshipType" name="internshipType" required>
+                    <option value="">Select Type</option>
+                    <option value="research">Research</option>
+                    <option value="industry">Industry</option>
+                    <option value="academic">Academic</option>
+                </select>
+                <div class="error-message" id="typeError"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Location*</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="location" value="abroad" required> Abroad</label>
+                    <label><input type="radio" name="location" value="india" required> India</label>
+                </div>
+                <div class="error-message" id="locationError"></div>
+            </div>
+
+            <!-- Document Upload Section -->
+            <div class="form-group">
+                <label>Document Uploads*</label>
+                
+                <div class="file-upload-group">
+                    <label for="permissionLetter">Signed Permission Letter & Offer Letter*</label>
+                    <input type="file" id="permissionLetter" name="permissionLetter" accept=".pdf,.jpg,.jpeg,.png" required>
+                    <div class="error-message" id="permissionLetterError"></div>
+                </div>
+
+                <div class="file-upload-group">
+                    <label for="completionCertificate">Completion Certificate*</label>
+                    <input type="file" id="completionCertificate" name="completionCertificate" accept=".pdf,.jpg,.jpeg,.png" required>
+                    <div class="error-message" id="completionCertificateError"></div>
+                </div>
+
+                <div class="file-upload-group">
+                    <label for="internshipReport">Internship Report*</label>
+                    <input type="file" id="internshipReport" name="internshipReport" accept=".pdf,.jpg,.jpeg,.png" required>
+                    <div class="error-message" id="internshipReportError"></div>
+                </div>
+
+                <div class="file-upload-group">
+                    <label for="studentFeedback">Student Feedback*</label>
+                    <input type="file" id="studentFeedback" name="studentFeedback" accept=".pdf,.jpg,.jpeg,.png" required>
+                    <div class="error-message" id="studentFeedbackError"></div>
+                </div>
+
+                <div class="file-upload-group">
+                    <label for="employerFeedback">Employer Feedback*</label>
+                    <input type="file" id="employerFeedback" name="employerFeedback" accept=".pdf,.jpg,.jpeg,.png" required>
+                    <div class="error-message" id="employerFeedbackError"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="submitBtn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-buttons">
+            <button class="footer-button">Start</button>
+            <button type="submit" form="registrationForm" class="footer-button">Save</button>
+            <button class="footer-button">Verify</button>
+            <button class="footer-button">End</button>
+        </div>
+    </footer>
+
+    <script>
+        // Helper function to show error messages
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+                errorElement.style.color = 'red';
+            }
+        }
+
+        // Helper function to hide error messages
+        function hideError(elementId) {
+            const errorElement = document.getElementById(elementId);
+            if (errorElement) {
+                errorElement.textContent = '';
+                errorElement.style.display = 'none';
+            }
+        }
+
+        // Form Validation
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset all error messages
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.textContent = '';
+                el.style.display = 'none';
+            });
+
+            let isValid = true;
+
+            // Register Number Validation (13 digits)
+            const regNo = document.getElementById('registerNumber').value.trim();
+            if (!/^\d{13}$/.test(regNo)) {
+                showError('regNoError', 'Register number must be exactly 13 digits');
+                isValid = false;
+            } else {
+                hideError('regNoError');
+            }
+
+            // Name Validation (letters and spaces only)
+            const name = document.getElementById('name').value.trim();
+            if (!/^[a-zA-Z\s]+$/.test(name)) {
+                showError('nameError', 'Name can only contain letters and spaces');
+                isValid = false;
+            } else {
+                hideError('nameError');
+            }
+
+            // Mobile Validation (10 digits, Indian format)
+            const mobile = document.getElementById('mobileNo').value.trim();
+            if (!/^[6-9]\d{9}$/.test(mobile)) {
+                showError('mobileError', 'Please enter a valid 10-digit mobile number');
+                isValid = false;
+            } else {
+                hideError('mobileError');
+            }
+
+            // Internship radio button validation
+            const internshipSelected = document.querySelector('input[name="internship"]:checked');
+            if (!internshipSelected) {
+                showError('internshipError', 'Please select if you obtained an internship');
+                isValid = false;
+            } else {
+                hideError('internshipError');
+            }
+
+            // Title validation
+            const title = document.getElementById('title').value.trim();
+            if (title === '') {
+                showError('titleError', 'Internship title is required');
+                isValid = false;
+            } else {
+                hideError('titleError');
+            }
+
+            // Period validation
+            const period = document.getElementById('period').value.trim();
+            if (period === '') {
+                showError('periodError', 'Internship period is required');
+                isValid = false;
+            } else {
+                hideError('periodError');
+            }
+
+            // Date Validation (end date after start date)
+            const startDate = new Date(document.getElementById('startDate').value);
+            const endDate = new Date(document.getElementById('endDate').value);
+            if (!document.getElementById('startDate').value) {
+                showError('startDateError', 'Start date is required');
+                isValid = false;
+            } else if (!document.getElementById('endDate').value) {
+                showError('endDateError', 'End date is required');
+                isValid = false;
+            } else if (startDate >= endDate) {
+                showError('endDateError', 'End date must be after start date');
+                isValid = false;
+            } else {
+                hideError('startDateError');
+                hideError('endDateError');
+            }
+
+            // Company validation
+            const company = document.getElementById('companyName').value.trim();
+            if (company === '') {
+                showError('companyError', 'Company name is required');
+                isValid = false;
+            } else {
+                hideError('companyError');
+            }
+
+            // Placement source validation
+            const placementSource = document.getElementById('placementSource').value;
+            if (placementSource === '') {
+                showError('sourceError', 'Please select placement source');
+                isValid = false;
+            } else {
+                hideError('sourceError');
+            }
+
+            // Stipend validation
+            const stipend = document.getElementById('stipend').value;
+            if (stipend === '' || isNaN(stipend) || parseFloat(stipend) < 0) {
+                showError('stipendError', 'Please enter a valid stipend amount');
+                isValid = false;
+            } else {
+                hideError('stipendError');
+            }
+
+            // Internship type validation
+            const internshipType = document.getElementById('internshipType').value;
+            if (internshipType === '') {
+                showError('typeError', 'Please select internship type');
+                isValid = false;
+            } else {
+                hideError('typeError');
+            }
+
+            // Location radio button validation
+            const locationSelected = document.querySelector('input[name="location"]:checked');
+            if (!locationSelected) {
+                showError('locationError', 'Please select internship location');
+                isValid = false;
+            } else {
+                hideError('locationError');
+            }
+
+            // File Validation (check if all files are uploaded)
+            const fileInputs = [
+                'permissionLetter',
+                'completionCertificate',
+                'internshipReport',
+                'studentFeedback',
+                'employerFeedback'
+            ];
+
+            fileInputs.forEach(inputId => {
+                const fileInput = document.getElementById(inputId);
+                if (fileInput.files.length === 0) {
+                    showError(`${inputId}Error`, 'This document is required');
+                    isValid = false;
+                } else {
+                    const file = fileInput.files[0];
+                    const validTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+                    if (!validTypes.includes(file.type)) {
+                        showError(`${inputId}Error`, 'Only PDF, JPG, and PNG files are allowed');
+                        isValid = false;
+                    } else if (file.size > 5 * 1024 * 1024) { // 5MB limit
+                        showError(`${inputId}Error`, 'File size must be less than 5MB');
+                        isValid = false;
+                    } else {
+                        hideError(`${inputId}Error`);
+                    }
+                }
+            });
+
+            if (isValid) {
+                // If validation passes, submit the form
+                this.submit();
+            }
+        });
+
+        // Pre-fill form fields from query parameters (if any)
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById("registerNumber").value = urlParams.get("registerNumber") || "";
+        document.getElementById("name").value = urlParams.get("name") || "";
+        document.getElementById("mobileNo").value = urlParams.get("mobileNo") || "";
+        document.getElementById("title").value = urlParams.get("title") || "";
+        document.getElementById("period").value = urlParams.get("period") || "";
+        document.getElementById("startDate").value = urlParams.get("startDate") || "";
+        document.getElementById("endDate").value = urlParams.get("endDate") || "";
+        document.getElementById("companyName").value = urlParams.get("companyName") || "";
+        document.getElementById("stipend").value = urlParams.get("stipend") || "";
+        document.getElementById("placementSource").value = urlParams.get("placementSource") || "";
+        document.getElementById("internshipType").value = urlParams.get("internshipType") || "";
+
+        const internshipValue = urlParams.get("internship");
+        if (internshipValue) {
+            document.querySelector(`input[name="internship"][value="${internshipValue}"]`).checked = true;
+        }
+
+        const locationValue = urlParams.get("location");
+        if (locationValue) {
+            document.querySelector(`input[name="location"][value="${locationValue}"]`).checked = true;
+        }
+
+        // Display Register Number
+        const displayElement = document.getElementById("registerNumberDisplay");
+        if (displayElement) {
+            displayElement.textContent = "Register Number: " + (urlParams.get("registerNumber") || "Not provided");
+        }
+    </script>
+</body>
+</html>

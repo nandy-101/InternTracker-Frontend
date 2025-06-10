@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .register-number {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+        .edit-btn { background-color: #007BFF; }
+        .view-btn { background-color: #28A745; }
+        .btn:hover { opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="registerNumberDisplay" class="register-number">Register Number: Loading...</div>
+        <button class="btn edit-btn" onclick="goToForm()">Edit or Insert</button>
+        <button class="btn view-btn" onclick="goToFinal()">View</button>
+    </div>
+
+    <script>
+        // Function to get URL parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get Register Number from URL
+        const registerNumber = getQueryParam("registerNumber") || "Not Provided";
+
+        // Display Register Number
+        document.getElementById("registerNumberDisplay").textContent = "Register Number: " + registerNumber;
+
+        // Redirect to Form.html with registerNumber
+        function goToForm() {
+            window.location.href = `form.html?registerNumber=${registerNumber}`;
+        }
+
+        // Redirect to Final.html with registerNumber
+        function goToFinal() {
+            window.location.href = `finalcsv.html?registerNumber=${registerNumber}`;
+        }
+    </script>
+
+</body>
+</html>

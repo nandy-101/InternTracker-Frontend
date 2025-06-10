@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login Page</title>
+    <link rel="stylesheet" href="student.css"> <!-- Link to the same CSS file -->
+</head>
+<body>
+    <div class="login-container">
+        <h2>Coordinator Login</h2>
+        <form id="loginForm" action="staff-dashboard.html" method="GET">
+            <!-- Degree Dropdown -->
+            <div class="form-group">
+            <div class="form-group">
+                <label for="degree">Degree</label>
+                <select id="degree" name="degree" required>
+                    <option value="">Select Degree</option>
+                    <option value="BE">BE</option>
+                    <option value="ME">ME</option>
+                    <option value="Mtech">Mtech</option>
+                </select>
+            </div>
+
+            <!-- Batch Dropdown -->
+            <div class="form-group">
+                <label for="batch">Batch</label>
+                <select id="batch" name="batch" required>
+                    <option value="">Select Batch</option>
+                    <option value="2021-2025">2021-2025</option>
+                    <option value="2022-2026">2022-2026</option>
+                    <option value="2023-2027">2023-2027</option>
+                    <option value="2024-2028">2024-2028</option>
+                </select>
+            </div>
+
+            <!-- Current Academic Year Dropdown -->
+            <div class="form-group">
+                <label for="academicYear">Current Academic Year</label>
+                <select id="academicYear" name="academicYear" required>
+                    <option value="">Select Academic Year</option>
+                    <option value="2021-2022">2021-2022</option>
+                    <option value="2022-2023">2022-2023</option>
+                    <option value="2023-2024">2023-2024</option>
+                    <option value="2024-2025">2024-2025</option>
+                    <option value="2025-2026">2025-2026</option>
+                    <option value="2026-2027">2026-2027</option>
+                    <option value="2027-2028">2027-2028</option>
+                </select>
+            </div>
+
+            <!-- Year of Study Dropdown -->
+            <div class="form-group">
+                <label for="yearOfStudy">Year of Study</label>
+                <select id="yearOfStudy" name="yearOfStudy" required>
+                    <option value="">Select Year of Study</option>
+                    <option value="I">I</option>
+                    <option value="II">II</option>
+                    <option value="III">III</option>
+                    <option value="IV">IV</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" onclick="">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

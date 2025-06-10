@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>/* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .home-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .button-group {
+            margin-bottom: 15px;
+        }
+        
+        .login-button {
+            display: inline-block;
+            width: 90%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .login-button:hover {
+            background-color: #0056b3;
+            
+        }</style>
+</head>
+<body>
+    <div class="home-container">
+        <h2>Welcome to the Internship Portal</h2>
+        <p>Please select your login type:</p>
+        
+        <!-- Button for Student Login -->
+        <div class="button-group">
+            <a href="student.html" class="login-button">Student Login</a>
+        </div>
+
+        <!-- Button for Staff Login -->
+        <div class="button-group">
+            <a href="coordinator.html" class="login-button">Coordinator Login</a>
+        </div>
+    </div>
+</body>
+</html>

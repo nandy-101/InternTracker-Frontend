@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Data</title>
+    <link rel="stylesheet" href="from.css"> <!-- Ensure the CSS file name is correct -->
+</head>
+<body>
+    <div class="form-container">
+        <h2>Final Data</h2>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be populated dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <div class="footer-buttons">
+            <button class="footer-button">Start</button>
+            <button id="editButton" class="footer-button">Edit</button> <!-- Edit Button -->
+            <button class="footer-button">Verify</button>
+            <button class="footer-button">Save</button>
+            <button class="footer-button">End</button>
+        </div>
+    </footer>
+
+    <script>
+        // Extract query parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Get the table body element
+        const tableBody = document.querySelector("#dataTable tbody");
+
+        // List of fields to display
+        const fields = [
+            { key: "registerNumber", label: "Register Number" },
+            { key: "name", label: "Name" },
+            { key: "mobileNo", label: "Mobile No." },
+            { key: "section", label: "Section" },
+            { key: "internship", label: "Obtained Internship" },
+            { key: "title", label: "Title" },
+            { key: "period", label: "Period" },
+            { key: "startDate", label: "Start Date" },
+            { key: "endDate", label: "End Date" },
+            { key: "companyName", label: "Company Name" },
+            { key: "placementSource", label: "Placement Source" },
+            { key: "stipend", label: "Stipend (In Rs.)" },
+            { key: "internshipType", label: "Internship Type" },
+            { key: "location", label: "Abroad / India" },
+            { key: "permissionLetter", label: "Permission Letter Submitted" },
+            { key: "completionCertificate", label: "Completion Certificate Submitted" },
+            { key: "internshipReport", label: "Internship Report Submitted" },
+            { key: "studentFeedback", label: "Student Feedback Submitted" },
+            { key: "employerFeedback", label: "Employer Feedback Submitted" },
+        ];
+
+        // Populate the table with data
+        fields.forEach(field => {
+            const value = urlParams.get(field.key);
+            if (value) {
+                const row = document.createElement("tr");
+                const fieldCell = document.createElement("td");
+                const valueCell = document.createElement("td");
+
+                fieldCell.textContent = field.label;
+                valueCell.textContent = value;
+
+                row.appendChild(fieldCell);
+                row.appendChild(valueCell);
+                tableBody.appendChild(row);
+            }
+        });
+
+        // Edit Button Functionality
+        const editButton = document.getElementById("editButton");
+        editButton.addEventListener("click", () => {
+            // Redirect to form.html with all query parameters
+            window.location.href = `form.html?${urlParams.toString()}`;
+        });
+    </script>
+</body>
+</html>
